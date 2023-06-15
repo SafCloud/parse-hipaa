@@ -317,6 +317,27 @@ configuration = {
             user: process.env.EMAIL_USER,
             password: process.env.EMAIL_PASSWORD,
             fromAddress: process.env.EMAIL_FROM_ADDRESS
+
+            template: true,
+            templatePath: "views/templates/template.html",
+        
+            // Custome options to your emails
+            // You can add more options if you need
+            passwordOptions: {
+                subject: "Password recovery",
+                body: "Custome pasword recovery email body",
+                btn: "Recover your password"
+                /* --EXTRA PARAMETERS--
+                others: {
+                  extraParameter
+                }
+                */
+            },
+            confirmOptions: {
+                subject: "E-mail confirmation",
+                body: "Custome email confirmation body",
+                btn: "confirm your email"
+            },
         }
     }
   /*emailAdapter: {
