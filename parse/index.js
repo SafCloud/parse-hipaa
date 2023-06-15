@@ -308,7 +308,7 @@ configuration = {
   mountPlayground: mountPlayground,
   playgroundPath: playgroundPath,
   verifyUserEmails: verifyUserEmails,
-  // Setup your mail adapter
+  // Setup your mail adapter-test
   /*emailAdapter: {
     module: 'parse-server-api-mail-adapter',
       /*options: {
