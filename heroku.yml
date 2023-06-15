@@ -1,5 +1,5 @@
 build: 
   docker:
-    web: parse/Dockerfile.heroku
+    web: parse/Dockerfile
 run:
   web: ./scripts/wait-for-postgres.sh node index.js
