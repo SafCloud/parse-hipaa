@@ -318,7 +318,7 @@ configuration = {
             password: process.env.EMAIL_PASSWORD,
             fromAddress: process.env.EMAIL_FROM_ADDRESS,
         }
-    }
+    },
   /*emailAdapter: {
     module: 'parse-server-api-mail-adapter',
       /*options: {
