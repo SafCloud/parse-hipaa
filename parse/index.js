@@ -316,7 +316,7 @@ configuration = {
             host: process.env.EMAIL_HOST,
             user: process.env.EMAIL_USER,
             password: process.env.EMAIL_PASSWORD,
-            fromAddress: 'process.env.EMAIL_FROM_ADDRESS,
+            fromAddress: process.env.EMAIL_FROM_ADDRESS,
         }
     }
   /*emailAdapter: {
