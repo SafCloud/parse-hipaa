@@ -316,7 +316,7 @@ configuration = {
       domain: process.env.EMAIL_DOMAIN,
       apiKey: process.env.EMAIL_API_KEY,
     }
- }
+ },
   /*emailAdapter: {
     module: 'parse-server-api-mail-adapter',
       /*options: {
