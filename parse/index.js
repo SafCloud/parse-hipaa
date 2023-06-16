@@ -310,15 +310,37 @@ configuration = {
   verifyUserEmails: verifyUserEmails,
   // Setup your mail adapter
   emailAdapter: {
-      module: 'parse-smtp-template',
+      module: "parse-server-email-with-template",
       options: {
-          port: 587,
-          host: process.env.EMAIL_HOST,
-          user: process.env.EMAIL_USER,
-          password: process.env.EMAIL_PASSWORD,
-          fromAddress: process.env.EMAIL_FROM_ADDRESS,
+        service: "SMTP", // Could be anything like yahoo, hotmail, etc, Full list - see below 
+     email: process.env.EMAIL_USER,
+     password: process.env.EMAIL_PASSWORD,
+     host: process.env.EMAIL_HOST,  //#"required for service SMTP"
+     isSSL: true, //True or false if you are using ssl  //#"required for service SMTP"
+     port: 587,
+          templates: {
+      passwordResetEmail: {
+        subject: 'Reset your password',
+        pathPlainText: path.resolve(__dirname, 'mail/templates/password_reset_email.txt'),
+        pathHtml: path.resolve(__dirname, 'mail/templates/password_reset_email.html'),
+        callback: (user) => { return { firstName: user.get('firstName') }}
+        // Now you can use {{firstName}} in your templates
+      },
+      verificationEmail: {
+        subject: 'Confirm your account',
+        pathPlainText: path.resolve(__dirname, 'mail/templates/verifyEmail/text'),
+        pathHtml: path.resolve(__dirname, 'mail/templates/verifyEmail/html'),
+        callback: (user) => { return { firstName: user.get('firstName') }}
+        // Now you can use {{firstName}} in your templates
+      },
+      customEmailAlert: {
+        subject: 'Urgent notification!',
+        pathPlainText: path.resolve(__dirname, 'mail/templates/custom_alert.txt'),
+        pathHtml: path.resolve(__dirname, 'mail/templates/custom_alert.html'),
       }
-  },
+    }
+      }
+   },
   /*emailAdapter: {
     module: 'parse-server-api-mail-adapter',
       /*options: {
