@@ -310,15 +310,13 @@ configuration = {
   verifyUserEmails: verifyUserEmails,
   // Setup your mail adapter
   emailAdapter: {
-      module: 'parse-smtp-template',
-      options: {
-          port: 587,
-          host: process.env.EMAIL_HOST,
-          user: process.env.EMAIL_USER,
-          password: process.env.EMAIL_PASSWORD,
-          fromAddress: process.env.EMAIL_FROM_ADDRESS
-      }
-  },
+    module: 'parse-server-simple-mailgun-adapter',
+    options: {
+      fromAddress: process.env.EMAIL_FROM_ADDRESS,
+      domain: process.env.EMAIL_DOMAIN,
+      apiKey: process.env.EMAIL_API_KEY,
+    }
+ }
   /*emailAdapter: {
     module: 'parse-server-api-mail-adapter',
       /*options: {
